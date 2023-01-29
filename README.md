@@ -1,2 +1,3 @@
-# python-course
-A complete Python course from Basics of Programming to Back-end developer
+# Курс програмування мовою Python
+
+1. [Основи програмування. Змінні. Математичні операції. Логічні операції](./lesson_1/)
