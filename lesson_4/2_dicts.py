@@ -9,6 +9,7 @@ my_dict = {
     "my_key": "my_value",
     "another_key": 42,
     42: "another_value",
+    "Саша": "Найкраща пані на всім світі",
 }
 print("my_dict:", my_dict)
 print("type of my_dict", type(my_dict))
@@ -39,17 +40,19 @@ another_dict = {
     }
 }
 print("another_dict:", another_dict)
+print("getting nested dict element is:", another_dict["dict"][8])
 
 # Для отримання значення з dict можна використовувати також метод .get()
 # Його перевагою є те, що в разі, якщо даного ключа нема в dict - то він
 # поверне None, або значення, передане другим аргументом до .get()
 print('my_dict value by key "my_key"', my_dict.get("my_key"))
 print('my_dict value by key "missing_key"', my_dict.get("missing_key"))
+print('my_dict value by key "my_new_key"', my_dict.get("my_new_key42", 512))
 print('my_dict value by key "missing_key42"', my_dict.get("missing_key42", 42))
 
 # Для того, аби видалити значення з dict необхідно використати метод .pop()
 # Метод .pop() в результаті свого виконання повертає значення
-popped_value = my_dict.pop("my_new_key_42")
+popped_value = my_dict.pop("my_new_key42")
 print('my_dict after .pop():', my_dict)
 print("popped value is", popped_value)
 
@@ -68,6 +71,11 @@ if "my_key" in my_dict:
 else:
     print('"my_key" key is not presented in my_dict')
 
+if "my_new_key_42" in my_dict:
+    print('"my_new_key_42" key is presented in my_dict')
+else:
+    print('"my_new_key_42" key is not presented in my_dict')
+
 # Для того, аби отримати всі значення dict необхідно використати метод
 # .values()
 print("my_dict values:", my_dict.values())
@@ -78,5 +86,8 @@ print("my_dict key-value pairs", my_dict.items())
 
 # Використовуючи останній метод, можна проітеруватись по елементах dict
 print("my_dict key-value pairs line by line")
+my_new_list = []
 for key, value in my_dict.items():
+    if isinstance(key, str):
+        my_new_list.append(key)
     print(f"{key}: {value}")
